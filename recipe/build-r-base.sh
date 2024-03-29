@@ -43,7 +43,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
       export F90=${F90//$HOST/$BUILD}
       export F95=${F95//$HOST/$BUILD}
       export FC=${FC//$HOST/$BUILD}
-      export GFORTRAN=${FC//$HOST/$BUILD}
+      export lfortran=${FC//$HOST/$BUILD}
       export LD=${LD//$HOST/$BUILD}
       export FFLAGS=${FFLAGS//$PREFIX/$BUILD_PREFIX}
       export FORTRANFLAGS=${FORTRANFLAGS//$PREFIX/$BUILD_PREFIX}
@@ -195,8 +195,8 @@ Linux() {
       exit 1
     fi
     
-    # Prevent C and C++ extensions from linking to libgfortran.
-    sed -i -r 's|(^LDFLAGS = .*)-lgfortran|\1|g' ${PREFIX}/lib/R/etc/Makeconf
+    # Prevent C and C++ extensions from linking to liblfortran.
+    sed -i -r 's|(^LDFLAGS = .*)-llfortran|\1|g' ${PREFIX}/lib/R/etc/Makeconf
 
     pushd ${PREFIX}/lib/R/etc
       # See: https://github.com/conda/conda/issues/6701

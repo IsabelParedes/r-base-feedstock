@@ -23,7 +23,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 fortran_compiler:
-- gfortran
+- lfortran
 fortran_compiler_version:
 - '10'
 glib:

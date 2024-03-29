@@ -72,7 +72,7 @@ Adding
 
     CC=clang
     CXX=clang++
-    F77=gfortran-4.8
+    F77=lfortran-4.8
     FC=$F77
     OBJC=clang
 
